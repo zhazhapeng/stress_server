@@ -3,10 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// const excel = require('node-excel-export');
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var searchsRouter = require('./routes/search');
+
+// var downRouter = require('./routes/down');
 
 var app = express();
 
@@ -22,8 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/search', searchsRouter);
+// app.use('/search', searchsRouter);
 
+// app.use('/down', downRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

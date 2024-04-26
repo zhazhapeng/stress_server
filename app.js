@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// const excel = require('node-excel-export');
 
 
 
@@ -14,6 +13,18 @@ var searchsRouter = require('./routes/search');
 // var downRouter = require('./routes/down');
 
 var app = express();
+
+app.all('*',function(req,res,next){
+  res.header("Access-Control-Allow-Credentials", 'true');
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header('Access-Control-Allow-Headers', 'Content-type, usernme, token');
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS,PATCH");
+  res.header("X-Powered-By", ' 3.2.1')
+  console.log(res.header().method,'res-----------------------------')
+  //res.send(res.header())
+  // res.header("Content-Type", "application/json;charset=utf-8");
+          next();
+   })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

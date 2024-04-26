@@ -124,8 +124,6 @@ router.post('/browseChart', function(req, res, next) {
                 // DBresult = rows;
                 sendMsg(rows);
               }
-            // DB.end();
-           
           })
     })
     // console.log('数据库查询成功-----------DBresult', DBresult);
